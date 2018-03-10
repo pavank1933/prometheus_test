@@ -1,7 +1,7 @@
-# prometheus_test
-Prometheus configuration using Ansible &nbsp;
-Prometheus -> Written in Golang &nbsp;
-It records time series data &nbsp;
+# prometheus_test   <br/>
+Prometheus configuration using Ansible 
+Prometheus -> Written in Golang 
+It records time series data 
 
 What is prometheus?
 Prometheus is a systems and services monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts if some condition is observed to be true.
@@ -18,48 +18,48 @@ Prometheus' main distinguishing features as compared to other monitoring systems
  
  
  
-***********Prometheus POC*********** {Monitor itself poc}&nbsp;
-https://prometheus.io/docs/prometheus/latest/getting_started/  &nbsp;
+***********Prometheus POC*********** {Monitor itself poc}
+https://prometheus.io/docs/prometheus/latest/getting_started/  
  
-********GRAFANA POC***********&nbsp;
-https://prometheus.io/docs/visualization/grafana/&nbsp;
-
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-
-*************Install, configure and monitor our first resource with Prometheus*************{start this for poc}&nbsp;
-https://prometheus.io/docs/introduction/first_steps/&nbsp;
-
-*****Install Prometheus**** &nbsp;
-wget https://github.com/prometheus/prometheus/releases/download/v2.2.0/prometheus-2.2.0.linux-amd64.tar.gz  &nbsp;
-tar xvfz prometheus-*.tar.gz  &nbsp;
-cd prometheus-*    &nbsp;
-cp -rpf prometheus.yml  prometheus.yml-orig   &nbsp;
-./prometheus --config.file=prometheus.yml   &nbsp;
+********GRAFANA POC***********
+https://prometheus.io/docs/visualization/grafana/
 
 
-*****Installing the Node Exporter****  &nbsp;
-yum update -y   &nbsp;
-wget https://github.com/prometheus/node_exporter/releases/download/v0.16.0-rc.0/node_exporter-0.16.0-rc.0.linux-amd64.tar.gz   &nbsp;
-tar xvfz node_exporter-*.tar.gz  &nbsp;
-cd node_exporter-* &nbsp;
-
-./node_exporter     &nbsp;
 
 
-*******Prometheus reload configuration info*******    &nbsp;
-https://www.robustperception.io/reloading-prometheus-configuration/    &nbsp;
 
-******Stop prometheus server******   &nbsp;
-ctrl+c to stop prometheus server    &nbsp;
 
-********to test whether we can ping target metrics from prometheus server****** &nbsp;
-curl -v -o /dev/null http://107.20.11.87:9100/metrics   &nbsp;
+
+
+
+
+
+
+*************Install, configure and monitor our first resource with Prometheus*************{start this for poc}
+https://prometheus.io/docs/introduction/first_steps/
+
+*****Install Prometheus**** 
+wget https://github.com/prometheus/prometheus/releases/download/v2.2.0/prometheus-2.2.0.linux-amd64.tar.gz  
+tar xvfz prometheus-*.tar.gz  
+cd prometheus-*    
+cp -rpf prometheus.yml  prometheus.yml-orig   
+./prometheus --config.file=prometheus.yml   
+
+
+*****Installing the Node Exporter****  
+yum update -y   
+wget https://github.com/prometheus/node_exporter/releases/download/v0.16.0-rc.0/node_exporter-0.16.0-rc.0.linux-amd64.tar.gz   
+tar xvfz node_exporter-*.tar.gz  
+cd node_exporter-* 
+
+./node_exporter     
+
+
+*******Prometheus reload configuration info*******    
+https://www.robustperception.io/reloading-prometheus-configuration/    
+
+******Stop prometheus server******   
+ctrl+c to stop prometheus server    
+
+********to test whether we can ping target metrics from prometheus server****** 
+curl -v -o /dev/null http://107.20.11.87:9100/metrics   
