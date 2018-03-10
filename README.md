@@ -25,6 +25,15 @@ https://prometheus.io/docs/prometheus/latest/getting_started/  &nbsp;
 https://prometheus.io/docs/visualization/grafana/&nbsp;
 
 &nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 *************Install, configure and monitor our first resource with Prometheus*************{start this for poc}&nbsp;
 https://prometheus.io/docs/introduction/first_steps/&nbsp;
