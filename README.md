@@ -1,7 +1,7 @@
-# prometheus_test   <br/>
-Prometheus configuration using Ansible 
-Prometheus -> Written in Golang 
-It records time series data 
+# prometheus_test   
+Prometheus configuration using Ansible    <br/>
+Prometheus -> Written in Golang   <br/>
+It records time series data    <br/>
 
 What is prometheus?
 Prometheus is a systems and services monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts if some condition is observed to be true.
