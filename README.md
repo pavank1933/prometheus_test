@@ -52,6 +52,6 @@ https://www.robustperception.io/reloading-prometheus-configuration/    <br/>
 ******Stop prometheus server******    <br/>
 ctrl+c to stop prometheus server     <br/>
 
-********to test whether we can ping target metrics from prometheus server******   <br/>
+********To test whether we can ping target metrics from prometheus server******   <br/>
 curl -v -o /dev/null http://107.20.11.87:9100/metrics     <br/>
   
