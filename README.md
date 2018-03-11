@@ -55,3 +55,60 @@ ctrl+c to stop prometheus server     <br/>
 ********To test whether we can ping target metrics from prometheus server******   <br/>
 curl -v -o /dev/null http://107.20.11.87:9100/metrics     <br/>
   
+  
+*****************************Ansible************************************   <br/>
+*****To execute playbooks on localhost use the below command*****  <br/>
+ansible-playbook -i "localhost," -c local test.yml <br/>
+
+******change the hosts file with{Its a remote server} ********* <br/>
+[webservers] <br/>
+54.*.*.*  
+
+ansible-playbook -i /etc/ansible/hosts test.yml <br/>
+
+export ANSIBLE_HOST_KEY_CHECKING=False  <br/>
+*****Do this when host key verification failed********	  <br/>	 
+
+
+**********To execute playbook on the remote server*************	  <br/>	 
+$ ansible-playbook -i /etc/ansible/hosts test.yml -vvvv   <br/>
+
+In the above command /etc/ansible/hosts file consists of remote amazon linux server. Playbook "test.yml" file <br/> 
+constains postgres client to get installed on the remomte server. For this we need to do put ssh keys in the  <br/>
+remote host. <br/>
+*Do the below procedure:-  <br/>
+
+Lets say you have 2 machines. Machine A {Ansible Host} & Machine B{ target}<br/>
+
+On the Machine A, you will have to generate a sshkey using : <br/>
+
+~$ ssh-keygen   <br/>
+This will generate a Public and Private key pair in .ssh directory of your current user. <br/>
+
+Once the keys are generated you need to copy the public key {extension .pub}{/root/.ssh/id_rsa.pub} from the  <br/>
+Machine A's .ssh directory.  <br/>
+
+Now Login to Machine B , and go inside .ssh folder of it. <br/>
+Now you need to create a file called "authorized_keys" (if not present, make sure the permission is readonly)  <br/>
+and paste the copied public key from Machine A to machine B. <br/>
+
+This is done . <br/>
+
+Now in your host{inventory} file on machine A use the following format :  <br/>
+
+[hosts]   <br/>
+Machine_B_ip ansible_ssh_user=username_here ansible_ssh_private_key_file=/path_of_private_key    <br/>
+
+In the /etc/ansible/hosts paste the below code:-    <br/>		 
+
+[webservers]     <br/>
+54.*.*.*  ansible_ssh_user=ec2-user  ansible_ssh_private_key_file=/root/.ssh/id_rsa      <br/>
+Note:-   <br/>
+54.*.*.* is the remote server.    <br/>
+ansible_ssh_user=ec2-user    #Remote server user    <br/>
+ansible_ssh_private_key_file=/root/.ssh/id_rsa      #Machine A private key file   <br/>
+
+		 
+Now run the below command:-     <br/>
+ansible-playbook -i /etc/ansible/hosts test.yml -vvvv           <br/>
+Note:- This playbook installs postgres client on remote server using hosts file	  <br/>	 
